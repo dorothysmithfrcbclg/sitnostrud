@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Deleted Rows</title>
+</head>
+<body>
+
+<table id="myTable" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>25</td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Jane</td>
+        <td>30</td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+    <!-- More rows as needed -->
+</table>
+
+<p>Deleted Rows: <span id="deletedRowsCount">0</span></p>
+
+<script>
+// Initialize the counter for deleted rows
+var deletedRows = 0;
+
+// Function to delete a row
+function deleteRow(button) {
+    // Get the row containing the button
+    var row = button.parentNode.parentNode;
+    
+    // Delete the row
+    row.parentNode.removeChild(row);
+    
+    // Increment the deleted rows counter
+    deletedRows++;
+    
+    // Update the displayed count of deleted rows
+    document.getElementById('deletedRowsCount').innerText = deletedRows;
+}
+</script>
+
+</body>
+</html>
